@@ -1,1 +1,1 @@
-{"1":{"id":1,"name":"peepee","learn":"Learn","threshold":1,"frequency":"Daily"}}
+{"1":{"id":1,"name":"kassska","learn":"Learn","threshold":1,"frequency":"Daily"},"3":{"id":3,"name":"kaka","learn":"Learn","threshold":1,"frequency":"Daily"}}

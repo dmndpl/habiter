@@ -1,1 +1,1 @@
-{"3":{"id":3,"name":"kaka","learn":"Learn","threshold":1,"frequency":"Daily"},"5":{"id":5,"name":"shashaa","learn":"Learn","threshold":1,"frequency":"Daily"},"4":{"id":4,"name":"kaka","learn":"Learn","threshold":1,"frequency":"Daily"},"1":{"id":1,"name":"kassska","learn":"Learn","threshold":1,"frequency":"Daily"}}
+{"1":{"id":1,"name":"shashaa","learn":"Learn","threshold":1,"frequency":"Daily"},"2":{"id":2,"name":"Stop picking my nose","learn":"Unlearn","threshold":2,"frequency":"Daily"}}

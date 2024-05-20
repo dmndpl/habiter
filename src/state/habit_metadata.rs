@@ -7,7 +7,6 @@ use crate::Habit;
 pub fn get_or_create() -> Result<HashMap<u32, Habit>, Box<dyn std::error::Error>> {
     match File::open("metadata.txt") {
         Ok(mut file) => {
-            println!("File opened successfully!");
             let mut contents = String::new();
             file.read_to_string(&mut contents)?;
 
@@ -31,11 +30,8 @@ pub fn get_or_create() -> Result<HashMap<u32, Habit>, Box<dyn std::error::Error>
 
 pub fn write_metadata(data: HashMap<u32, Habit>) -> Result<(), Box<dyn std::error::Error>> {
     let string_data = serde_json::to_string(&data)?;
-    println!("{}", string_data);
-
-    //let mut file = File::open("metadata.txt")?;
-
     fs::write("metadata.txt", string_data.as_bytes())?;
+ 
     Ok(())
 }
 

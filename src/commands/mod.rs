@@ -1,5 +1,6 @@
 pub mod create;
 pub mod delete;
-// pub mod do;
+pub mod update;
 pub mod list;
+pub mod show;
 

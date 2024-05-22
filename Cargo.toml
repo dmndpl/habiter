@@ -11,3 +11,4 @@ clap = {version = "4.0.18", features = ["derive"]}  # For CLI argument parsing
 anyhow = "1.0" # For error handling
 serde = {version = "1.0", features = ["derive"]}# For serializing to JSON
 serde_json = "1.0"
+chrono = "0.4"

@@ -1,8 +1,8 @@
 mod commands;
 mod state;
-use std::fmt;
 use clap::{Parser, Subcommand, ValueEnum};
 use serde::{Deserialize, Serialize};
+use std::fmt;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -14,7 +14,7 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    Create { 
+    Create {
         name: String,
 
         #[arg(value_enum)]
@@ -23,12 +23,18 @@ enum Commands {
         threshold: u32,
 
         #[arg(value_enum)]
-        frequency: Frequency
+        frequency: Frequency,
     },
-    Do { id: u32},
-    Delete { id: u32},
-    Show { id: Option<u32>},
-    List {}
+    Do {
+        id: u32,
+    },
+    Delete {
+        id: u32,
+    },
+    Show {
+        id: Option<u32>,
+    },
+    List {},
 }
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum, Serialize, Deserialize, Debug)]
@@ -50,12 +56,16 @@ struct Habit {
     name: String,
     learn: Mode,
     threshold: u32,
-    frequency: Frequency
+    frequency: Frequency,
 }
 
 impl fmt::Display for Habit {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{:?} description: {:?} type: {:?} threshold: {:?} frequency: {:?})", self.id, self.name, self.learn, self.threshold, self.frequency)
+        write!(
+            f,
+            "{:?} description: {:?} type: {:?} threshold: {:?} frequency: {:?})",
+            self.id, self.name, self.learn, self.threshold, self.frequency
+        )
     }
 }
 
@@ -63,9 +73,12 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Commands::Create { name, learn, threshold, frequency } => {
-            commands::create::run(name.to_string(), *learn, *threshold, *frequency).expect("Oops")
-        }
+        Commands::Create {
+            name,
+            learn,
+            threshold,
+            frequency,
+        } => commands::create::run(name.to_string(), *learn, *threshold, *frequency).expect("Oops"),
         Commands::List {} => {
             let result = commands::list::run().expect("Oops");
             println!("{:?}", result);
